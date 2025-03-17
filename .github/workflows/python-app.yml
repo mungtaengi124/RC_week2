@@ -14,12 +14,15 @@ on:
         description: "Test python build"
         required: false
         type: string
+        
+
 
 permissions:
   contents: read
 
 jobs:
   build:
+
     runs-on: ubuntu-latest
 
     steps:
@@ -35,7 +38,7 @@ jobs:
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
     - name: Lint with pylint
       run: |
-        pylint **/*.py
+        pylint *.py
     - name: Test with pytest
       run: |
         pytest
